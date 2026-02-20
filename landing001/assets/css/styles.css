@@ -555,7 +555,7 @@ a:hover{ text-decoration:underline; }
 @media (max-width: 820px){
   .lp-hero{
     padding: 34px 14px;
-    min-height: 60svh;
+    min-height: 70svh;
   }
 
   .lp-hero__wrap{
