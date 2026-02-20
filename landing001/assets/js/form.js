@@ -110,7 +110,6 @@ function getMetaCookies() {
       email,
       phone,
       company_name: company,
-      revenue_band: revenue,
       sms_consent: smsConsent ? "true" : "false",
       fbp,
       fbc,
