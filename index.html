@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ProScale | Système RDV + Suivi automatique</title>
+  <meta name="description" content="Convertis plus de prospects en rendez-vous avec un système simple: landing + SMS + suivis automatiques. Conçu pour les business à rendez-vous." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1580137859721892');
+fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1580137859721892&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+
+<body>
+
+
+  <main>
+    <!-- SECTION 1: hero (on la build quand tu envoies le screenshot) -->
+    <section class="lp-hero" aria-label="Hero ProScale">
+      <div class="lp-hero__wrap">
+
+        <div class="lp-hero__top">
+          <div class="lp-hero__brand">Pro<span class="lp-green">scale</span></div>
+          <div class="lp-hero__kicker">
+            POUR LES ENTREPRISES QUI FONCTIONNENT PAR RDV POUR VENDRE LEUR PRODUIT/SERVICE.
+          </div>
+        </div>
+
+        <div class="lp-hero__center">
+          <h1 class="lp-hero__title">
+            PAS ASSEZ DE <span class="lp-green">RENDEZ-VOUS</span><br>
+            À TON AGENDA ?
+          </h1>
+
+          <p class="lp-hero__sub">
+            ON ATTIRE LES BONS LEADS ET LES TRANSFORME EN RENDEZ-VOUS QUALIFIÉS GRÂCE À
+            NOTRE INFRASTRUCTURE IA .
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section class="lp-form" aria-label="Formulaire ProScale">
+      <div class="lp-form__wrap">
+
+        <h2 class="lp-form__title">
+          VIENS TESTER NOTRE <span class="lp-green">MACHINE!</span>
+        </h2>
+
+        <p class="lp-form__lead">
+          Remplis ce mini formulaire pour tester l’infrastructure qui qualifie<br>
+          automatiquement tes leads.
+        </p>
+
+        <div class="lp-form__card">
+          <form id="proscaleForm" class="lp-form__inner" novalidate>
+
+        <label class="lp-field">
+          <span class="lp-field__label">Nom complet*</span>
+          <input
+            class="lp-field__input"
+            type="text"
+            id="full_name"
+            name="full_name"
+            placeholder="Ex: Jean Tremblay"
+            autocomplete="name"
+            required
+          />
+        </label>
+
+        <label class="lp-field">
+          <span class="lp-field__label">E-mail*</span>
+          <input
+            class="lp-field__input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Ex: jean@entreprise.com"
+            autocomplete="email"
+            inputmode="email"
+            required
+          />
+        </label>
+
+        <label class="lp-field">
+          <span class="lp-field__label">Numéro de téléphone*</span>
+          <input
+            class="lp-field__input"
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Ex: 514 555 1234"
+            autocomplete="tel"
+            inputmode="tel"
+            required
+          />
+        </label>
+
+        <label class="lp-field">
+          <span class="lp-field__label">Nom de votre entreprise*</span>
+          <input
+            class="lp-field__input"
+            type="text"
+            id="company_name"
+            name="company_name"
+            placeholder="Ex: ProScale Marketing"
+            required
+            autocomplete="organization"
+          />
+        </label>
+
+        <fieldset class="lp-field">
+          <legend class="lp-field__label">Quelle est votre tranche de revenu?*</legend>
+
+          <label class="lp-choice">
+            <input type="radio" name="revenue_band" value="0-100K" required>
+            <span>0–100K</span>
+          </label>
+
+          <label class="lp-choice">
+            <input type="radio" name="revenue_band" value="100K-500K" required>
+            <span>100K–500K</span>
+          </label>
+
+          <label class="lp-choice">
+            <input type="radio" name="revenue_band" value="500K-1M" required>
+            <span>500K–1M</span>
+          </label>
+
+          <label class="lp-choice">
+            <input type="radio" name="revenue_band" value="1M+" required>
+            <span>Plus</span>
+          </label>
+        </fieldset>
+
+
+            <label class="lp-consent">
+              <input class="lp-consent__box" type="checkbox" name="sms_consent" > <!--required--> 
+              <span class="lp-consent__text">
+                J’accepte de recevoir des messages texte automatisés de la part de ProScale Marketing au numéro de téléphone fourni.
+                Vous pouvez répondre STOP à tout moment pour vous désabonner. Consultez nos
+                <a class="lp-consent__link" href="/terms.html">Conditions d’utilisation</a> et notre
+                <a class="lp-consent__link" href="/privacy.html">Politique de confidentialité</a>.
+              </span>
+            </label>
+
+            <button class="lp-btn" type="submit">
+              TESTER LA MACHINE!
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="lp-proof" aria-label="Preuve sociale ProScale">
+      <div class="lp-proof__wrap">
+
+        <div class="lp-proof__grid">
+
+          <article class="lp-proof__item">
+            <div class="lp-proof__top">
+              <span class="lp-proof__plus">+</span>
+
+              <!-- Icon: People -->
+              <i class="lp-proof__icon fa-solid fa-users"></i>
+            </div>
+
+            <h3 class="lp-proof__title">Campagnes Meta optimisées</h3>
+            <p class="lp-proof__text">
+              Structure complète, rotation des<br>
+              créatives et gestion continue pour<br>
+              maintenir un coût par lead bas.
+            </p>
+          </article>
+
+          <article class="lp-proof__item">
+            <div class="lp-proof__top">
+              <span class="lp-proof__plus">+</span>
+
+              <!-- Icon: Clock -->
+              <i class="lp-proof__icon fa-solid fa-clock"></i>
+            </div>
+
+            <h3 class="lp-proof__title">Qualification automatisée</h3>
+            <p class="lp-proof__text">
+              Relances et tri automatique des<br>
+              prospects pour éviter les suivis<br>
+              manuels.
+            </p>
+          </article>
+
+          <article class="lp-proof__item">
+            <div class="lp-proof__top">
+              <span class="lp-proof__plus">+</span>
+
+              <!-- Icon: Calendar -->
+              <i class="lp-proof__icon fa-solid fa-calendar-days"></i>
+            </div>
+
+            <h3 class="lp-proof__title">Agenda remplit automatiquement</h3>
+            <p class="lp-proof__text">
+              Seuls les prospects réellement<br>
+              intéressés prennent rendez-vous.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="lp-modal" id="lpModal" aria-hidden="true">
+  <div class="lp-modal__backdrop" data-close="1"></div>
+
+  <div class="lp-modal__card" role="dialog" aria-modal="true" aria-labelledby="lpModalTitle">
+    <h3 class="lp-modal__title" id="lpModalTitle">Requête envoyée ✅</h3>
+    <p class="lp-modal__text">
+      Merci. Sophie te contactera bientôt.
+    </p>
+    <button class="lp-modal__btn" type="button" data-close="1">OK</button>
+  </div>
+</div>
+
+
+
+  </main>
+
+  <footer class="lp-footer">
+    <div class="lp-wrap lp-footer__inner">
+      <p class="lp-footer__small">© <span id="year"></span> ProScale. Tous droits réservés.</p>
+      <div class="lp-footer__links">
+        <a href="https://provitro.ca/privacy-policy" target="_blank" rel="noopener noreferrer">
+          Politique de confidentialité
+        </a>
+
+        <a href="https://provitro.ca/terms-and-conditions" target="_blank" rel="noopener noreferrer">
+          Conditions d’utilisation
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+
+<script>
+(function () {
+  const phone = document.getElementById("phone");
+  const hidden = document.getElementById("phone_e164"); // optionnel mais recommandé
+  if (!phone) return;
+
+  const form = phone.closest("form");
+
+  const digitsOnly = (s) => (s || "").replace(/\D/g, "");
+
+  function normalizeToUS(digits) {
+    let d = digitsOnly(digits);
+    if (!d) return { national: "", e164: "" };
+
+    // Cas: ils collent un +1 / 1 + 10 chiffres
+    if (d.length === 11 && d[0] === "1") {
+      const national = d.slice(1);
+      return { national, e164: "+1" + national };
+    }
+
+    // Cas: ils tapent 10 chiffres -> assume +1
+    if (d.length >= 10) {
+      const national = d.slice(0, 10);
+      return { national, e164: "+1" + national };
+    }
+
+    // Pas assez de chiffres
+    return { national: d, e164: "" };
+  }
+
+  function formatPretty(national10) {
+    if (national10.length !== 10) return "";
+    const a = national10.slice(0,3);
+    const b = national10.slice(3,6);
+    const c = national10.slice(6,10);
+    return `+1 (${a}) ${b}-${c}`;
+  }
+
+  function finalizePhone() {
+    const raw = phone.value;
+    const { national, e164 } = normalizeToUS(raw);
+
+    // Si 10 chiffres: on formate et on met +1 automatiquement
+    if (national.length === 10) {
+      phone.value = formatPretty(national);
+      if (hidden) hidden.value = e164;
+      return;
+    }
+
+    // Sinon: on laisse tel quel (et hidden vide), le required/validation fera le reste
+    if (hidden) hidden.value = "";
+  }
+
+  // Pendant la saisie: on ne masque pas, mais on empêche les caractères weird si tu veux
+  phone.addEventListener("input", () => {
+    // Optionnel: autoriser seulement chiffres + espaces + () + - + +
+    phone.value = phone.value.replace(/[^\d\+\-\(\)\s]/g, "");
+    if (hidden) hidden.value = "";
+  });
+
+  // Quand il “finit”
+  phone.addEventListener("blur", finalizePhone);
+
+  // Enter dans le champ => finalise (sinon certains browsers submit direct)
+  phone.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") finalizePhone();
+  });
+
+  // Submit => finalise toujours
+  if (form) {
+    form.addEventListener("submit", () => finalizePhone(), { capture: true });
+  }
+})();
+</script>
+
+<script src="assets/js/form.js"></script>
+
+</body>
+</html>
