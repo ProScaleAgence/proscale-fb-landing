@@ -314,7 +314,7 @@ a:hover{ text-decoration:underline; }
 }
 
 .lp-field__input::placeholder{
-  color: rgba(255,255,255,.88);
+  color: rgba(255, 255, 255, 0.467);
   font-weight: 800;
   text-transform: none;
   letter-spacing: .1px;
@@ -325,7 +325,7 @@ a:hover{ text-decoration:underline; }
 }
 
 .lp-field__input:focus::placeholder{
-  color: rgba(255,255,255,.55);
+  color: rgba(255, 255, 255, 0.255);
 }
 
 .lp-field__label{
