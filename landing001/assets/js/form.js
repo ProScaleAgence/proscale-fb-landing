@@ -83,7 +83,6 @@ function getMetaCookies() {
     const email = form.querySelector('[name="email"]')?.value?.trim() || "";
     const phoneRaw = form.querySelector('[name="phone"]')?.value?.trim() || "";
     const company = form.querySelector('[name="company_name"]')?.value?.trim() || "";
-    const revenue = getRadioValue("revenue_band");
     const smsConsent = !!form.querySelector('[name="sms_consent"]')?.checked;
 
     if (!name) return alert("Écris ton nom complet.");
@@ -91,7 +90,6 @@ function getMetaCookies() {
     const phone = normalizePhoneToE164US(phoneRaw);
     if (!phone) return alert("Entre un numéro valide. Exemple: +1 514 000 0000");
     if (!company) return alert("Écris le nom de ton entreprise.");
-    if (!revenue) return alert("Choisis une tranche de revenu.");
     if (!smsConsent) return alert("Tu dois cocher la case pour accepter les SMS.");
 
     locked = true;
