@@ -561,7 +561,7 @@ a:hover{ text-decoration:underline; }
   .lp-hero__wrap{
     width: 100%;
     row-gap: 34px;
-    min-height: 60svh;
+    min-height: 500px;
   }
 
   .lp-hero__top{
