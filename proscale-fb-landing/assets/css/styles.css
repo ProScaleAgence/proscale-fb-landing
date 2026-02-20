@@ -15,6 +15,13 @@ body{
   line-height:1.45;
 }
 
+body{
+  font-family: "Lexend", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #000;
+  color:var(--text);
+  line-height:1.45;
+}
+
 a{ color:inherit; text-decoration:none; }
 a:hover{ text-decoration:underline; }
 
@@ -87,69 +94,132 @@ a:hover{ text-decoration:underline; }
 }
 .lp-footer__links a:hover{ color:var(--text); }
 
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
 /* HERO */
+/* HERO CLEAN (1 seule version) */
+/* HERO — TOP en haut, CENTER au centre */
+/* HERO — version clean (top en haut / center au centre, pas collé) */
 .lp-hero{
-
-  display:flex;
-  align-items:flex-start;           /* au lieu de center */
-  justify-content:center;
-  padding: 34px 22px 44px;          /* moins de padding en haut */
-  background: #000;
+  background:#000;
+  overflow:hidden;
+  padding: 42px 22px;          /* air global */
 }
 
 .lp-hero__wrap{
-  width:min(1100px, 100%);
-  text-align:center;
-  padding-top: 18px;                /* contrôle fin du “haut” */
+  width: min(1100px, 100%);
+  margin: 0 auto;
+
+  min-height: 92svh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: clamp(18px, 3.2vh, 56px);  /* ça empêche le "collé" proprement */
+  text-align: center;
+  align-content: center;
 }
 
+/* TOP = ligne 1 */
+.lp-hero__top{
+  justify-self: center;
+  max-width: 640px;
+}
+
+/* CENTER = ligne 2 */
+.lp-hero__center{
+  justify-self: center;
+  align-self: center;
+
+  position: relative;
+  isolation: isolate;          /* pour que le glow reste derrière */
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: auto !important;
+  padding-top: 0 !important;
+}
+
+/* Glow derrière H1 + sub (décor OK en absolute) */
+.lp-hero__center::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:52%;
+  transform: translate(-50%, -50%);
+
+  width: min(94vw, 1500px);
+  height: min(48vw, 720px);
+
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(189,255,0,.95) 0%,
+    rgba(189,255,0,.60) 22%,
+    rgba(189,255,0,.28) 48%,
+    rgba(0,0,0,0) 75%
+  );
+
+  filter: blur(32px);
+  z-index: -1;
+  pointer-events:none;
+}
+
+
 .lp-hero__brand{
+  margin: 0 0 14px;
   font-weight: 900;
-  font-size: 18px;
-  letter-spacing: .6px;
+  font-size: 22px;
+  letter-spacing: .8px;
   text-transform: uppercase;
-  opacity: .98;
-  margin-bottom: 40px;              /* moins d’espace avant le kicker */
 }
 
 .lp-hero__kicker{
-  margin: 0 0 54px;                 /* resserré */
+  display:inline-block; 
+  max-width: none;                      /* enlève le cap */
+  padding: 12px 28px;                   /* padding Canva */
+  margin: 0 auto;
+  white-space: normal;
+  border: 2px solid var(--green);
+  border-radius: 20px;
+  background: rgba(0,0,0,.55);
+  box-shadow: 0 0 26px rgba(189,255,0,.14);
+  margin: 0;
   font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 1.2px;
+  font-size: 12px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  opacity: .92;
+  line-height: 1.25;
+  opacity: .95;
 }
 
 .lp-hero__title{
   margin: 0;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: .5px;
+  letter-spacing: .25px;
   line-height: 1.02;
-  font-size: clamp(44px, 6.2vw, 84px);
+  font-size: 70px;
+  text-shadow:
+    0 10px 40px rgba(0,0,0,.75),
+    0 22px 90px rgba(0,0,0,.65);
+}
+
+.lp-hero__sub{
+  margin: 22px 0 0;
+  max-width: 980px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  line-height: 1.35;
+  font-size: clamp(13px, 1.25vw, 17px);
+  opacity: .95;
+  text-shadow:
+    0 8px 28px rgba(0,0,0,.75),
+    0 18px 60px rgba(0,0,0,.60);
 }
 
 .lp-green{
   color: var(--green);
 }
 
-.lp-hero__sub{
-  margin: 54px 0 0;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: 1.35;
-  font-size: clamp(15px, 1.7vw, 20px);
-  opacity: .95;
-}
 
 /* FORM SECTION */
 .lp-form{
@@ -172,6 +242,9 @@ body{
   letter-spacing: .5px;
   line-height: 1.05;
   font-size: clamp(34px, 4.5vw, 54px);
+  text-shadow:
+    0 18px 60px rgba(0,0,0,.65),
+    0 2px 0 rgba(0,0,0,.25);
 }
 
 .lp-form__lead{
@@ -185,13 +258,26 @@ body{
 .lp-form::before{
   content:"";
   position:absolute;
-  inset: -20% -10% -20% -10%;
+  inset: -12% -12% -16% -12%; /* plus petit que -25% partout */
+
   background:
-    radial-gradient(500px 340px at 50% 45%, rgba(189,255,0,.28), transparent 65%),
-    radial-gradient(900px 520px at 50% 55%, rgba(189,255,0,.12), transparent 70%);
-  filter: blur(1px);
+    radial-gradient(900px 560px at 50% 46%,
+      rgba(189,255,0,.28) 0%,
+      rgba(189,255,0,.12) 46%,
+      rgba(0,0,0,0) 72%
+    ),
+    radial-gradient(620px 400px at 50% 62%,
+      rgba(189,255,0,.16) 0%,
+      rgba(0,0,0,0) 72%
+    );
+
+  filter: blur(8px);
+  opacity: 1;
   pointer-events:none;
+  z-index: 0;
 }
+
+
 
 /* Card */
 .lp-form__card{
@@ -211,7 +297,7 @@ body{
 
 .lp-field{
   display:block;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .lp-field__input{
@@ -219,7 +305,8 @@ body{
   background: transparent;
   border: none;
   border-bottom: 3px solid rgba(255,255,255,.90);
-  padding: 14px 0 14px;
+  padding: 5px 0 5px;
+  line-height: 1.15;
   color: #fff;
   font-size: 18px;
   font-weight: 700;
@@ -227,7 +314,7 @@ body{
 }
 
 .lp-field__input::placeholder{
-  color: rgba(255,255,255,.88);
+  color: rgba(255, 255, 255, 0.467);
   font-weight: 800;
   text-transform: none;
   letter-spacing: .1px;
@@ -238,9 +325,30 @@ body{
 }
 
 .lp-field__input:focus::placeholder{
-  color: rgba(255,255,255,.55);
+  color: rgba(255, 255, 255, 0.255);
 }
 
+.lp-field__label{
+  display:block;
+  margin: 0 0 5px;
+  line-height: 1.15;
+  font-weight: 800;
+  opacity: .9;
+}
+
+.lp-choice{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding: 10px 0;
+  font-weight: 700;
+}
+
+.lp-choice input{
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
 
 /* Consent */
 .lp-consent{
@@ -435,7 +543,125 @@ body{
 
 /* Mobile tweaks */
 @media (max-width: 520px){
-  .lp-hero{ padding: 36px 18px; }
-  .lp-hero__kicker{ margin-bottom: 46px; }
-  .lp-hero__sub{ margin-top: 40px; }
+  .lp-hero__title{ font-size: clamp(34px, 8.5vw, 54px); }
+  .lp-hero__wrap{ transform: translateY(-8px); }
+  .lp-hero__wrap::before{ width: 880px; height: 520px; filter: blur(52px); }
+}
+
+/* =========================
+   HERO — MOBILE + TABLET
+   ========================= */
+
+@media (max-width: 820px){
+  .lp-hero{
+    padding: 34px 14px;
+    min-height: 60svh;
+  }
+
+  .lp-hero__wrap{
+    width: 100%;
+    row-gap: 34px;
+    min-height: 60svh;
+  }
+
+  .lp-hero__top{
+    position: static;        /* enlève l'absolu sur mobile */
+    transform: none;
+    margin-top: 6px;
+    top: 28px;
+  }
+
+  .lp-hero__brand{
+    font-size: 18px;
+    margin: 0 0 12px;
+  }
+
+  .lp-hero__kicker{
+    padding: 10px 18px;
+    border-radius: 18px;
+    font-size: 11px;
+    letter-spacing: .9px;
+    max-width: 92%;
+  }
+
+  .lp-hero__center{
+    min-height: 92svh;
+    padding-top: 120px;
+    margin-top: 26px;
+    display: block;          /* plus de flex full-height */
+    width: 100%;
+  }
+
+  .lp-hero__title{
+    font-size: clamp(34px, 10.2vw, 46px);
+    line-height: 1.02;
+  }
+
+  .lp-hero__sub{
+    max-width: 92%;
+    margin: 14px auto 0;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  /* glow: plus serré, moins flou, bien centré */
+  .lp-hero__center::before{
+    top: 52%;
+    width: 96vw;
+    height: 78vw;            /* plus haut mais suit le contenu */
+    filter: blur(24px);
+  }
+
+  .lp-form{
+  position: relative;
+  padding: 40px 22px 30px;
+  background: #000;
+  overflow: hidden;
+}
+}
+
+@media (max-width: 480px){
+  .lp-hero{
+    padding: 34px 14px;
+  }
+
+  .lp-hero__top{
+    top: 22px;
+  }
+
+  .lp-hero__kicker{
+    padding: 10px 16px;
+    font-size: 10px;
+    border-width: 2px;
+    max-width: 94%;
+  }
+
+  .lp-hero__center{
+    padding-top: 110px;
+  }
+
+  .lp-hero__title{
+    font-size: clamp(34px, 10.2vw, 46px);
+    letter-spacing: .15px;
+  }
+
+  .lp-hero__sub{
+    font-size: 12px;
+    letter-spacing: .7px;
+    max-width: 95%;
+  }
+
+  /* glow: plus compact sur petit écran */
+  .lp-hero__center::before{
+    top: 56%;
+    height: 92vw;            /* encore plus haut si tu veux le même “cercle” que Canva */
+    top: 54%;
+    filter: blur(24px);
+  }
+}
+
+/* (optionnel) iPhone très petit */
+@media (max-width: 360px){
+  .lp-hero__title{ font-size: 32px; }
+  .lp-hero__kicker{ font-size: 9.5px; }
 }
