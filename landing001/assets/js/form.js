@@ -104,6 +104,8 @@ function getMetaCookies() {
     // Meta cookies (pour matching CAPI)
     const { fbp, fbc } = getMetaCookies();
 
+    const eventId = (crypto?.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
+    
     // Envoi stable vers GHL webhook: x-www-form-urlencoded
     const body = new URLSearchParams({
       name,
@@ -114,6 +116,7 @@ function getMetaCookies() {
       sms_consent: smsConsent ? "true" : "false",
       fbp,
       fbc,
+      event_id: eventId,
       source: "proscale_fb_landing",
       landing_url: window.location.href,
       page: window.location.href,
