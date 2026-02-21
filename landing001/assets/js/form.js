@@ -28,8 +28,7 @@ function getMetaCookies() {
 }
 
 (function () {
-  const WEBHOOK_URL =
-    "https://services.leadconnectorhq.com/hooks/3nwUtv7PBoZevKxzYcpA/webhook-trigger/e453b53c-93a5-4ffe-9261-2d7bd8948ed8";
+  const CAPI_URL = "https://go.proscalemarketing.ca/capi";
 
   const form = document.getElementById("proscaleForm");
   if (!form) return;
@@ -90,6 +89,7 @@ function getMetaCookies() {
     const phone = normalizePhoneToE164US(phoneRaw);
     if (!phone) return alert("Entre un numéro valide. Exemple: +1 514 000 0000");
     if (!company) return alert("Écris le nom de ton entreprise.");
+    if (!revenue) return alert("Choisis une tranche de revenu.");
     if (!smsConsent) return alert("Tu dois cocher la case pour accepter les SMS.");
 
     locked = true;
@@ -103,13 +103,14 @@ function getMetaCookies() {
     const { fbp, fbc } = getMetaCookies();
 
     const eventId = (crypto?.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
-    
+
     // Envoi stable vers GHL webhook: x-www-form-urlencoded
     const body = new URLSearchParams({
       name,
       email,
       phone,
       company_name: company,
+      revenue_band: revenue,
       sms_consent: smsConsent ? "true" : "false",
       fbp,
       fbc,
@@ -121,20 +122,29 @@ function getMetaCookies() {
     });
 
     try {
-      await fetch(WEBHOOK_URL, {
+      await fetch(CAPI_URL, {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-        body
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          company_name: company,
+          fbp,
+          fbc,
+          event_id: eventId,
+          landing_url: window.location.href,
+          ts: new Date().toISOString()
+        })
       });
 
       form.reset();
       openModal();
 
       // Optionnel: si Pixel installé, track Lead côté navigateur
-      if (typeof window.fbq === "function") {
-        window.fbq("track", "Lead");
-      }
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "Lead", {}, { eventID: eventId });
+    }
     } catch (err) {
       alert("Erreur d’envoi. Réessaie.");
     } finally {
