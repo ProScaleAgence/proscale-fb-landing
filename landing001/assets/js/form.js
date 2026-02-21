@@ -89,7 +89,6 @@ function getMetaCookies() {
     const phone = normalizePhoneToE164US(phoneRaw);
     if (!phone) return alert("Entre un numéro valide. Exemple: +1 514 000 0000");
     if (!company) return alert("Écris le nom de ton entreprise.");
-    if (!revenue) return alert("Choisis une tranche de revenu.");
     if (!smsConsent) return alert("Tu dois cocher la case pour accepter les SMS.");
 
     locked = true;
@@ -110,7 +109,6 @@ function getMetaCookies() {
       email,
       phone,
       company_name: company,
-      revenue_band: revenue,
       sms_consent: smsConsent ? "true" : "false",
       fbp,
       fbc,
